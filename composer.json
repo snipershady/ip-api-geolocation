@@ -3,6 +3,8 @@
     "description": "Free wrapper to easily implements ip-api.com free API",
     "type": "library",
     "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Stefano Perrini",
