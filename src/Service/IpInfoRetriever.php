@@ -1,5 +1,7 @@
 <?php
 
+namespace IPApiGelolocationService\Service;
+
 use IPApiGelolocationService\Repository\IpInfoRepositoryAPI;
 
 /*

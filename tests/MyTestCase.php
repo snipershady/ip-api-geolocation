@@ -2,8 +2,9 @@
 
 namespace IPApiGelolocationService\Tests;
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use PHPUnit\Framework\TestCase;
-require_once __DIR__ .'/../vendor/autoload.php';
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
@@ -28,5 +29,5 @@ require_once __DIR__ .'/../vendor/autoload.php';
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
 class MyTestCase extends TestCase {
-
+    
 }

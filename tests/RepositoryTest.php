@@ -2,7 +2,9 @@
 
 namespace IPApiGelolocationService\Tests;
 
-use IPApiGelolocationService\Repository\IpInfoRepositoryAPI;
+use IPApiGelolocationService;
+use IPApiGelolocationService\Service;
+use IPApiGelolocationService\Service\IpInfoRetriever;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
@@ -31,16 +33,16 @@ class RepositoryTest extends MyTestCase {
 
     public function testServiceIPv4(): void {
         $ip = "173.194.67.94";
-        $serviceRetrievere = new IpInfoRepositoryAPI();
+        $serviceRetrievere = new IPApiGelolocationService\Service\IpInfoRetriever();
 
-        $this->assertEquals($ip, $serviceRetrievere->findByIp($ip)->getQuery());
+        $this->assertEquals($ip, $serviceRetrievere->findInfoByIp($ip)->getQuery());
     }
     
     public function testServiceIPv6():void {
         $ip = "2001:4860:4860::8888";
-        $serviceRetrievere = new IpInfoRepositoryAPI();
+        $serviceRetrievere = new IpInfoRetriever();
 
-        $this->assertEquals($ip, $serviceRetrievere->findByIp($ip)->getQuery());
+        $this->assertEquals($ip, $serviceRetrievere->findInfoByIp($ip)->getQuery());
     }
 
 }
