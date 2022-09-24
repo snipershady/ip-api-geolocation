@@ -2,8 +2,6 @@
 
 namespace IPApiGeolocationWrapper\Tests;
 
-use IPApiGeolocationWrapper;
-use IPApiGeolocationWrapper\Service;
 use IPApiGeolocationWrapper\Service\IpInfoRetriever;
 
 /*
