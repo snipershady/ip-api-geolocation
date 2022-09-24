@@ -1,9 +1,9 @@
 <?php
 
-namespace IPApiGelolocationService\Repository;
+namespace IPApiGeolocationWrapper\Repository;
 
 use InvalidArgumentException;
-use IPApiGelolocationService\Entity\IpInfo;
+use IPApiGeolocationWrapper\Entity\IpInfo;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna

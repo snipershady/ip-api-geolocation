@@ -1,8 +1,8 @@
 <?php
 
-namespace IPApiGelolocationService\Service;
+namespace IPApiGeolocationWrapper\Service;
 
-use IPApiGelolocationService\Repository\IpInfoRepositoryAPI;
+use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna

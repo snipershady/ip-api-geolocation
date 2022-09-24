@@ -14,12 +14,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "IPApiGelolocationService\\": "src/"
+            "IPApiGeolocationWrapper\\": "src/"
         }       
     },
     "autoload-dev": {
         "psr-4": {
-            "IPApiGelolocationService\\Tests\\": "tests/"
+            "IPApiGeolocationWrapper\\Tests\\": "tests/"
         }
     },
     "require": {

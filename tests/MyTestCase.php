@@ -1,6 +1,6 @@
 <?php
 
-namespace IPApiGelolocationService\Tests;
+namespace IPApiGeolocationWrapper\Tests;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

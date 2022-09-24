@@ -1,10 +1,10 @@
 <?php
 
-namespace IPApiGelolocationService\Tests;
+namespace IPApiGeolocationWrapper\Tests;
 
-use IPApiGelolocationService;
-use IPApiGelolocationService\Service;
-use IPApiGelolocationService\Service\IpInfoRetriever;
+use IPApiGeolocationWrapper;
+use IPApiGeolocationWrapper\Service;
+use IPApiGeolocationWrapper\Service\IpInfoRetriever;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
@@ -33,7 +33,7 @@ class RepositoryTest extends MyTestCase {
 
     public function testServiceIPv4(): void {
         $ip = "173.194.67.94";
-        $serviceRetrievere = new IPApiGelolocationService\Service\IpInfoRetriever();
+        $serviceRetrievere = new IpInfoRetriever();
 
         $this->assertEquals($ip, $serviceRetrievere->findInfoByIp($ip)->getQuery());
     }

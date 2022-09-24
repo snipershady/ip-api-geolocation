@@ -1,9 +1,9 @@
 <?php
 
-namespace IPApiGelolocationService\Tests;
+namespace IPApiGeolocationWrapper\Tests;
 
-use IPApiGelolocationService\Entity\IpInfo;
-use IPApiGelolocationService\Repository\IpInfoRepositoryAPI;
+use IPApiGeolocationWrapper\Entity\IpInfo;
+use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna

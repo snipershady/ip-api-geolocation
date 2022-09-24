@@ -1,6 +1,6 @@
 <?php
 
-namespace IPApiGelolocationService\Entity;
+namespace IPApiGeolocationWrapper\Entity;
 
 use Serializable;
 use RuntimeException;
