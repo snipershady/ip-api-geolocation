@@ -2,7 +2,7 @@
     "name": "snipershady/ipapigeolocation",
     "description": "Free wrapper to easily implements ip-api.com free API",
     "type": "library",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Stefano Perrini",
