@@ -1,0 +1,1 @@
+{"version":1,"defects":{"IPApiGelolocationService\\Tests\\RepositoryTest::testRepository":4,"IPApiGelolocationService\\Tests\\EntityTest::testSerialization":4},"times":{"IPApiGelolocationService\\Tests\\RepositoryTest::testRepository":0.115,"IPApiGelolocationService\\Tests\\EntityTest::testSerialization":0.112}}
