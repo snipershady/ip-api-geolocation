@@ -29,8 +29,15 @@ use IPApiGelolocationService\Repository\IpInfoRepositoryAPI;
  */
 class RepositoryTest extends MyTestCase {
 
-    public function testRepository(): void {
+    public function testServiceIPv4(): void {
         $ip = "173.194.67.94";
+        $serviceRetrievere = new IpInfoRepositoryAPI();
+
+        $this->assertEquals($ip, $serviceRetrievere->findByIp($ip)->getQuery());
+    }
+    
+    public function testServiceIPv6():void {
+        $ip = "2001:4860:4860::8888";
         $serviceRetrievere = new IpInfoRepositoryAPI();
 
         $this->assertEquals($ip, $serviceRetrievere->findByIp($ip)->getQuery());
