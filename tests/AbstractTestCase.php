@@ -24,10 +24,10 @@ use PHPUnit\Framework\TestCase;
  */
 
 /**
- * Description of RepositoryTest
+ * Description of AbstractTestCase
  *
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
-class MyTestCase extends TestCase {
+abstract class AbstractTestCase extends TestCase {
     
 }

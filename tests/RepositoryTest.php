@@ -27,7 +27,7 @@ use IPApiGeolocationWrapper\Service\IpInfoRetriever;
  *
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
-class RepositoryTest extends MyTestCase {
+class RepositoryTest extends AbstractTestCase {
 
     public function testServiceIPv4(): void {
         $ip = "173.194.67.94";

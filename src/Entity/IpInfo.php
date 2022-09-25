@@ -2,15 +2,16 @@
 
 namespace IPApiGeolocationWrapper\Entity;
 
-use Serializable;
+use JsonException;
 use RuntimeException;
+use Serializable;
 
 /**
  * Description of IpInfo
  *
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
-final class IpInfo implements Serializable {
+final class IpInfo {
 
     /**
      * 
@@ -422,6 +423,10 @@ final class IpInfo implements Serializable {
         return $this;
     }
 
+    /**
+     * 
+     * @return string|null
+     */
     public function serialize(): ?string {
         if ($this->status === "fail") {
             $arrayObject = [
@@ -463,12 +468,12 @@ final class IpInfo implements Serializable {
      * 
      * @param string $data
      * @return void
-     * @throws RuntimeException
+     * @throws RuntimeException|JsonException
      */
     public function unserialize(string $data): void {
 
         $element = json_decode($data, true, JSON_THROW_ON_ERROR | JSON_NUMERIC_CHECK);
-
+        
         $this
                 ->setStatus($element["status"]);
         if ($this->status === "fail") {

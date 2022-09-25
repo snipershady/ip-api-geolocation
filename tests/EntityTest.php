@@ -23,12 +23,12 @@ use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
  */
 
 /**
- * Description of RepositoryTest
+ * Description of EntityTest
  * @example ./vendor/phpunit/phpunit/phpunit --verbose tests/EntityTest.php 
  *
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
-class EntityTest extends MyTestCase {
+class EntityTest extends AbstractTestCase {
 
     public function testSerialization(): void {
         $ip = "173.194.67.94";
