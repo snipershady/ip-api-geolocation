@@ -36,9 +36,19 @@ final class IpInfoRepositoryAPI implements IpInfoRepositoryInterface {
      * {@inheritDoc}
      */
     public function findByIp(string $ip): IpInfo {
-
         $url = $this->entrypoint . $ip . "?" . $this->fields;
+        $ipInfo = new IpInfo();
+        $ipInfo->unserialize($this->httpRequest($url));
+        return $ipInfo;
+    }
 
+    /**
+     * 
+     * @param string $url
+     * @return string
+     * @throws RuntimeException
+     */
+    private function httpRequest(string $url): string {
         $curl = curl_init();
 
         curl_setopt_array($curl, [
@@ -53,16 +63,13 @@ final class IpInfoRepositoryAPI implements IpInfoRepositoryInterface {
         ]);
 
         $response = curl_exec($curl);
-        if($response === false){
-            throw new RuntimeException("Fail: ".curl_error($curl));
+        if ($response === false) {
+            throw new RuntimeException("Fail: " . curl_error($curl));
         }
 
         curl_close($curl);
 
-        $ipInfo = new IpInfo();
-        $ipInfo->unserialize((string)$response);
-
-        return $ipInfo;
+        return (string) $response;
     }
 
 }
