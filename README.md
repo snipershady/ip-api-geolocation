@@ -1,6 +1,10 @@
 # ip-api-geolocation
 Free wrapper to easily implements ip-api.com free API
 
+```bash
+composer require snipershady/ipapigeolocation
+```
+
 ```php
 use IPApiGeolocationWrapper\Service\IpInfoRetriever;
 
