@@ -57,7 +57,7 @@ class ServiceRetrieverTest extends AbstractTestCase {
         echo $ipInfo->getMessage();
         $this->assertEquals($ipInfo->getMessage(), "FAIL: ip-api.com returns a status of failure for this requests. invalid query");
     }
-    
+
     public function testServiceLocalHost(): void {
         $ip = "127.0.0.1";
         $serviceRetriever = new IpInfoRetriever();
@@ -66,7 +66,16 @@ class ServiceRetrieverTest extends AbstractTestCase {
         echo $ipInfo->getMessage();
         $this->assertEquals($ipInfo->getMessage(), "FAIL: ip-api.com returns a status of failure for this requests. reserved range");
     }
-    
+
+    public function testServicePrivateRangeIP(): void {
+        $ip = "127.0.0.1";
+        $serviceRetriever = new IpInfoRetriever();
+        $this->expectException(\RuntimeException::class);
+        $ipInfo = $serviceRetriever->findInfoByIp($ip);
+        echo $ipInfo->getMessage();
+        $this->assertEquals($ipInfo->getMessage(), "FAIL: ip-api.com returns a status of failure for this requests. private range");
+    }
+
     private function getPublicIp(): string {
         $match = [];
         $publicIpInformationByPublicService = file_get_contents('http://checkip.dyndns.com/');

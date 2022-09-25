@@ -2,7 +2,6 @@
 
 namespace IPApiGeolocationWrapper\Repository;
 
-use InvalidArgumentException;
 use IPApiGeolocationWrapper\Entity\IpInfo;
 
 /*
@@ -33,7 +32,7 @@ interface IpInfoRepositoryInterface {
      * 
      * @param string $ip
      * @return IpInfo
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException|\RuntimeException
      */
-    public function findByIp(string $ip): ?IpInfo;
+    public function findByIp(string $ip): IpInfo;
 }

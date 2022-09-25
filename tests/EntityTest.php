@@ -30,16 +30,59 @@ use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
  */
 class EntityTest extends AbstractTestCase {
 
-    public function testSerialization(): void {
+    public function testSerializationValidIp(): void {
         $ip = "173.194.67.94";
         $serviceRetrievere = new IpInfoRepositoryAPI();
         $ipInfoObject = $serviceRetrievere->findByIp($ip);
         $stringSerialized = $ipInfoObject->serialize();
-        
+
         $newObject = new IpInfo();
         $newObject->unserialize($stringSerialized);
 
         $this->assertEquals($ipInfoObject->getQuery(), $newObject->getQuery());
+        $this->assertTrue($newObject->equals($ipInfoObject));
+    }
+
+    public function testSerializationNotValidIP(): void {
+        $ip = "256.194.67.94";
+        $serviceRetrievere = new IpInfoRepositoryAPI();
+        $this->expectException(\RuntimeException::class);
+        $ipInfoObject = $serviceRetrievere->findByIp($ip);
+        $message = "FAIL: ip-api.com returns a status of failure for this requests. invalid query";
+
+        $this->assertEquals($message, $ipInfoObject->getMessage());
+    }
+
+    public function testSerializationPrivateIp(): void {
+        $ip = "192.168.0.1";
+        $serviceRetrievere = new IpInfoRepositoryAPI();
+        $this->expectException(\RuntimeException::class);
+        $ipInfoObject = $serviceRetrievere->findByIp($ip);
+        $message = "FAIL: ip-api.com returns a status of failure for this requests. invalid query";
+
+        $this->assertEquals($message, $ipInfoObject->getMessage());
+    }
+
+    public function testEqualsImplementationNoAttributesInitialization(): void {
+        $ipInfo = new IpInfo();
+        $ipInfoTwo = new IpInfo();
+        $this->assertTrue($ipInfo->equals($ipInfoTwo));
+    }
+
+    public function testEqualsImplementation(): void {
+        $ipInfo = new IpInfo();
+        $ipInfo->setHosting(true)
+                ->setIsp("SPinfo.it")
+                ->setOffset(-1500)
+                ->setLatititude(1.1);
+
+        $ipInfoTwo = new IpInfo();
+        $ipInfoTwo
+                ->setHosting(true)
+                ->setIsp("SPinfo.it")
+                ->setOffset(-1500)
+                ->setLatititude(1.1);
+        $this->assertTrue($ipInfo->equals($ipInfoTwo));
     }
 
 }

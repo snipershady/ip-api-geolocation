@@ -1,10 +1,5 @@
 <?php
 
-namespace IPApiGeolocationWrapper\Service;
-
-use IPApiGeolocationWrapper\Entity\IpInfo;
-use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
-
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  *
@@ -22,21 +17,25 @@ use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+namespace IPApiGeolocationWrapper\Service;
+
 /**
- * Description of IpInfoRetriever
+ * Description of ArraySanitizerService
  *
  * @author Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
  */
-final class IpInfoRetriever {
+class ArraySanitizerService {
 
     /**
-     * <p>Returns IP Geolocation of caller IP address or defined IP address</p>
-     * @param string $ip
-     * @return IpInfo
+     * <p>Returns value from a needle of an array, sanitized and with effective primitive strict type</p>
+     * @param string $needle
+     * @param array<mixed> $array
+     * @return bool|int|float|string|null
      */
-    public function findInfoByIp(string $ip): IpInfo {
-        $repo = new IpInfoRepositoryAPI();
-        return $repo->findByIp($ip);
+    public function getKeyFromArray(string $needle, array $array = []): bool|int|float|string|null {
+        $eptr = new EffectivePrimitiveTypeRetrieverService();
+
+        return is_array($array) && array_key_exists($needle, $array) ? $eptr->returnStrictType($array[$needle]) : null;
     }
 
 }

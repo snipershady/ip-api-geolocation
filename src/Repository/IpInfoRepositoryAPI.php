@@ -3,6 +3,7 @@
 namespace IPApiGeolocationWrapper\Repository;
 
 use IPApiGeolocationWrapper\Entity\IpInfo;
+use RuntimeException;
 
 /*
  * Copyright (C) 2022 Stefano Perrini <perrini.stefano@gmail.com> aka La Matrigna
@@ -34,7 +35,7 @@ final class IpInfoRepositoryAPI implements IpInfoRepositoryInterface {
     /**
      * {@inheritDoc}
      */
-    public function findByIp(string $ip): ?IpInfo {
+    public function findByIp(string $ip): IpInfo {
 
         $url = $this->entrypoint . $ip . "?" . $this->fields;
 
@@ -52,11 +53,14 @@ final class IpInfoRepositoryAPI implements IpInfoRepositoryInterface {
         ]);
 
         $response = curl_exec($curl);
+        if($response === false){
+            throw new RuntimeException("Fail: ".curl_error($curl));
+        }
 
         curl_close($curl);
 
         $ipInfo = new IpInfo();
-        $ipInfo->unserialize($response);
+        $ipInfo->unserialize((string)$response);
 
         return $ipInfo;
     }

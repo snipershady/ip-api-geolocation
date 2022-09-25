@@ -1,6 +1,8 @@
 {
     "name": "snipershady/ipapigeolocation",
     "description": "Free wrapper to easily implements ip-api.com free API",
+    "keywords": ["ip-api", "geolocation", "ip-api.com"],
+    "homepage": "https://www.spinfo.it",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "minimum-stability": "stable",
