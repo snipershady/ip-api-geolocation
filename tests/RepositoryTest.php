@@ -2,6 +2,7 @@
 
 namespace IPApiGeolocationWrapper\Tests;
 
+use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
 use IPApiGeolocationWrapper\Service\IpInfoRetriever;
 
 /*
@@ -31,16 +32,16 @@ class RepositoryTest extends AbstractTestCase {
 
     public function testServiceIPv4(): void {
         $ip = "173.194.67.94";
-        $serviceRetrievere = new IpInfoRetriever();
+        $repo = new IpInfoRepositoryAPI();
 
-        $this->assertEquals($ip, $serviceRetrievere->findInfoByIp($ip)->getQuery());
+        $this->assertEquals($ip, $repo->findByIp($ip)->getQuery());
     }
-    
-    public function testServiceIPv6():void {
-        $ip = "2001:4860:4860::8888";
-        $serviceRetrievere = new IpInfoRetriever();
 
-        $this->assertEquals($ip, $serviceRetrievere->findInfoByIp($ip)->getQuery());
+    public function testServiceIPv6(): void {
+        $ip = "2001:4860:4860::8888";
+        $repo = new IpInfoRepositoryAPI();
+
+        $this->assertEquals($ip, $repo->findByIp($ip)->getQuery());
     }
 
 }

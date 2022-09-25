@@ -28,6 +28,11 @@ use IPApiGeolocationWrapper\Repository\IpInfoRepositoryAPI;
  */
 final class IpInfoRetriever {
 
+    /**
+     * <p>Returns IP Geolocation of caller IP address or defined IP address</p>
+     * @param string $ip
+     * @return type
+     */
     public function findInfoByIp(string $ip) {
         $repo = new IpInfoRepositoryAPI();
         return $repo->findByIp($ip);

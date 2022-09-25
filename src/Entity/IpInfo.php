@@ -2,9 +2,7 @@
 
 namespace IPApiGeolocationWrapper\Entity;
 
-use JsonException;
 use RuntimeException;
-use Serializable;
 
 /**
  * Description of IpInfo
@@ -468,7 +466,7 @@ final class IpInfo {
      * 
      * @param string $data
      * @return void
-     * @throws RuntimeException|JsonException
+     * @throws \RuntimeException|\JsonException
      */
     public function unserialize(string $data): void {
 
